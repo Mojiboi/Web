@@ -1,0 +1,81 @@
+/* nav {
+} */
+
+body {
+    /* background-color: blueviolet; */
+    background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fstock.adobe.com%2Fsearch%3Fk%3Dcandle%2Blit%2Bdinner%2Bdate&psig=AOvVaw1Bqttq08mkaIzlcFab8w2Q&ust=1719166324043000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCLjRwfvm74YDFQAAAAAdAAAAABAE");
+}
+#nav-list {
+    display: flex;
+    justify-content: center;
+    background-color: hsl(183, 97%, 29%);
+    color: cornsilk;
+    gap: 40px;
+    font-size: 1.3rem;
+}
+#nav-list li:hover {
+    color: black;
+}
+#nav-list li:active {
+    color: rgb(244, 244, 244);
+}
+
+
+#moveButton {
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    background-color: deeppink;
+    color: rgb(255, 255, 255);
+    border-radius: 20px;
+    transition: transform 0.5s ease-in-out;
+    font-weight: bold;
+}
+#wel {
+    font-size: 2rem;
+    padding: 10px 20px;
+    font-family: sans-serif;
+    background-color: purple;
+    color: beige;
+    border: none;
+    border-radius: 25px;
+    ;
+}
+
+#explodeButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    background-color: deeppink;
+    color: rgb(255, 255, 255);
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+#explosionContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.shape {
+    position: absolute;
+    font-size: 24px;
+    animation: explode 4s ease-out forwards;
+}
+
+@keyframes explode {
+    0% {
+        opacity: 1;
+        transform: scale(1) translate(0, 0);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(2) translate(var(--x), var(--y));
+    }
+}
