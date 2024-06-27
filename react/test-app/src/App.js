@@ -3,6 +3,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Col, Container, Row, Card, Button } from 'react-bootstrap';
+import { data } from './Data/userdata';
 // import React, { useState, useEffect } from 'react';
 
 
@@ -33,11 +34,17 @@ let arr = ['Cat','Cherry','Peach']
 // }
 function App() {
   const username = 'Moazzam';
+  let HeaderInfo = {
+    Type:'test',
+    date:'26/06/34',
+    user:'MoazzamMirza'
+  }
   return (
     <div className="App">
-      <Header/>
+      {/* <Header text="This text is generated using props"/> */}
+      <Header Info={HeaderInfo} />
       <h1 className='glass-effect'>Welcome {username}</h1>
-      <Container>
+      {/* <Container fluid>
         <Container>
           <Row>
             <Col>
@@ -95,8 +102,16 @@ function App() {
             </Col>
           </Row>
         </Container>
+      </Container> */}
+      <Container>
+        <Row>
+          {data.map((v,i)=>{return(
+            <Usersdata pitems={v} key={i} />
+          )})}
+        </Row>
       </Container>
-      <Footer/>
+      <Footer></Footer>
+      {/* <Footer/> */}
     </div>
   );
 }
@@ -117,10 +132,18 @@ function App() {
 export default App;
 
 
-// function Card(){
-//   return(
-//   <div className='card'>
-//     <label>Product</label>
-//   </div>
-//   );
-// }
+function Usersdata({pitems}){
+  return(
+  <div className='col-lg-3 mb-4'>
+      <Card>
+        <Card.Body>
+          <Card.Title>{pitems.title}</Card.Title>
+          <Card.Text>
+            {pitems.body}
+          </Card.Text>
+          <Button variant="primary">Go somewhere</Button>
+        </Card.Body>
+      </Card>
+  </div>
+  );
+}
